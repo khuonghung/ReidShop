@@ -50,7 +50,7 @@
                                     <ul class="dropdown_links">
                                         <li><a href="my-account.jsp">Tài khoản</a></li>
                                         <li><a href="login.jsp">Đăng nhập</a></li>
-                                        <li><a href="#">Quản lý</a></li>
+                                        <li><a href="dashboard">Quản lý</a></li>
                                     </ul>
                                 </li> 
                             </ul>
@@ -164,7 +164,7 @@
                                     <ul class="dropdown_links">
                                         <li><a href="my-account.html">Tài khoản của tôi</a></li>
                                         <li><a href="#">Đăng nhập</a></li>
-                                        <li><a href="#">Quản lý</a></li>
+                                        <li><a href="dashboard">Quản lý</a></li>
                                     </ul>
                                 </li> 
                             </ul>

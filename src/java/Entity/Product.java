@@ -5,6 +5,9 @@
  */
 package Entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Khuong Hung
@@ -18,6 +21,8 @@ public class Product {
     String product_describe;
     int quantity;
     String img;
+    List<Size> size = new ArrayList<>();
+    List<Color> color = new ArrayList<>();
 
     public Product() {
     }
@@ -88,7 +93,22 @@ public class Product {
         this.img = img;
     }
 
-    
+    public List<Size> getSize() {
+        return size;
+    }
 
+    public void setSize(List<Size> size) {
+        this.size = size;
+    }
+
+    public List<Color> getColor() {
+        return color;
+    }
+
+    public void setColor(List<Color> color) {
+        this.color = color;
+    }
+
+   
         
 }

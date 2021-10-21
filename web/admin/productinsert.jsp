@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
     <head>
         <title>Thêm sản phẩm | Quản trị Admin</title>
         <meta charset="utf-8">
@@ -218,11 +218,11 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Size</label>
-                                    <input class="form-control" name="size" type="text" placeholder="X XL S ...">
+                                    <input class="form-control" name="size" type="text" placeholder="S,L,XL,...">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Màu</label>
-                                    <input class="form-control" name="color" type="text">
+                                    <input class="form-control" placeholder="Blue,Gray,..." name="color" type="text">
                                 </div>
                                 <div class="form-group  col-md-3">
                                     <label class="control-label">Số lượng</label>
@@ -245,9 +245,10 @@
                                 <div class="form-group col-md-12">
                                     <label class="control-label">Mô tả sản phẩm</label>
                                     <textarea class="form-control" name="describe" id="describe"></textarea>
-                                    <script>CKEDITOR.replace('describe');</script>
+<!--                                    <script>CKEDITOR.replace('describe');</script>-->
                                 </div>
                                 <button class="btn btn-save" type="submit">Lưu lại</button>
+                                &nbsp;
                                 <a class="btn btn-cancel" href="productmanager">Hủy bỏ</a>
                             </form>
                         </div>

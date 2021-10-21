@@ -45,7 +45,7 @@ public class productDAO {
         return list;
     }
 
-    public void insertProduct(Product product, Size size, Color color) {
+    public void insertProduct(Product product) {
         String sql = "insert into product (product_id,category_id,product_name,product_price,product_describe,quantity,img) values(?,?,?,?,?,?,?)";
         try {
             conn = new DBContext().getConnection();
@@ -63,46 +63,69 @@ public class productDAO {
         String sql1 = "insert into product_size (product_id,size) values(?,?)";
         try {
             conn = new DBContext().getConnection();
-            ps = conn.prepareStatement(sql1);
-            ps.setString(1, size.getProduct_id());
-            ps.setString(2, size.getSize());
-            ps.executeUpdate();
+            for (Size i : product.getSize()) {
+                ps = conn.prepareStatement(sql1);
+                ps.setString(1, i.getProduct_id());
+                ps.setString(2, i.getSize());
+                ps.executeUpdate();
+            }
         } catch (Exception e) {
         }
         String sql2 = "insert into product_color (product_id,color) values(?,?)";
         try {
             conn = new DBContext().getConnection();
-            ps = conn.prepareStatement(sql2);
-            ps.setString(1, color.getProduct_id());
-            ps.setString(2, color.getColor());
-            ps.executeUpdate();
+            for (Color i : product.getColor()) {
+                ps = conn.prepareStatement(sql2);
+                ps.setString(1, i.getProduct_id());
+                ps.setString(2, i.getColor());
+                ps.executeUpdate();
+            }
         } catch (Exception e) {
         }
     }
 
-//    public void insertSize(Size size) {
-//        String sql = "insert into product_size (product_id,size) values(?,?)";
-//        try {
-//            conn = new DBContext().getConnection();
-//            ps = conn.prepareStatement(sql);
-//            ps.setString(1, size.getProduct_id());
-//            ps.setString(2, size.getSize());
-//            ps.executeUpdate();
-//        } catch (Exception e) {
-//        }
-//    }
-//
-//    public void insertColor(Color color) {
-//        String sql = "insert into product_color (product_id,color) values(?,?)";
-//        try {
-//            conn = new DBContext().getConnection();
-//            ps = conn.prepareStatement(sql);
-//            ps.setString(1, color.getProduct_id());
-//            ps.setString(2, color.getColor());
-//            ps.executeUpdate();
-//        } catch (Exception e) {
-//        }
-//    }
+    public void ProductDelete(String product_id) {
+        String sql = "delete from product where product_id=?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, product_id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        String sql1 = "delete from product_size where product_id=?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(sql1);
+            ps.setString(1, product_id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        String sql2 = "delete from product_color where product_id=?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(sql2);
+            ps.setString(1, product_id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        String sql3 = "delete from product_img where product_id=?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(sql3);
+            ps.setString(1, product_id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
 
     public List<Size> getSize() {
         List<Size> list = new ArrayList<>();
