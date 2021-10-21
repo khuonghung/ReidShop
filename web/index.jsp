@@ -18,7 +18,6 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
     <!-- Plugins CSS -->
     <link rel="stylesheet" href="assets/css/plugins.css">
-    
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 
@@ -49,8 +48,9 @@
                             <ul>
                                <li class="top_links"><a href="#">Tài Khoản của tôi <i class="ion-chevron-down"></i></a>
                                     <ul class="dropdown_links">
-                                        <li><a href="my-account.html">Tài khoản</a></li>
-                                        <li><a href="login.html">Đăng nhập</a></li>
+                                        <li><a href="my-account.jsp">Tài khoản</a></li>
+                                        <li><a href="login.jsp">Đăng nhập</a></li>
+                                        <li><a href="#">Quản lý</a></li>
                                     </ul>
                                 </li> 
                             </ul>
@@ -104,10 +104,10 @@
                                     </div>
                                     
                                     <div class="cart_button view_cart">
-                                        <a href="cart.html">Giỏ hàng</a>
+                                        <a href="cart.jsp">Giỏ hàng</a>
                                     </div>
                                     <div class="cart_button checkout">
-                                        <a href="checkout.html">Thanh toán</a>
+                                        <a href="checkout.jsp">Thanh toán</a>
                                     </div>
                                 </div>
                                 <!--mini cart end-->
@@ -116,16 +116,16 @@
                         <div id="menu" class="text-left ">
                             <ul class="offcanvas_main_menu">
                                 <li class="active">
-                                    <a href="index.html">Trang chủ</a>
+                                    <a href="index.jsp">Trang chủ</a>
                                 </li>
                                 <li class="active">
-                                    <a href="shop_category.html">Sản phẩm</a>
+                                    <a href="shop_category.jsp">Sản phẩm</a>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="about.html">Chúng tôi</a>
+                                    <a href="about.jsp">Chúng tôi</a>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="contact.html">Liên hệ</a> 
+                                    <a href="contact.jsp">Liên hệ</a> 
                                 </li>
                             </ul>
                         </div>
@@ -164,6 +164,7 @@
                                     <ul class="dropdown_links">
                                         <li><a href="my-account.html">Tài khoản của tôi</a></li>
                                         <li><a href="#">Đăng nhập</a></li>
+                                        <li><a href="#">Quản lý</a></li>
                                     </ul>
                                 </li> 
                             </ul>
@@ -251,9 +252,9 @@
                         <div class="main_menu"> 
                             <nav>  
                                 <ul>
-                                    <li><a href="index.html">Trang chủ<i class="fa"></i></a>
+                                    <li><a href="index.jsp">Trang chủ<i class="fa"></i></a>
                                     </li>
-                                    <li class="mega_items"><a href="shop.html">Sản phẩm</a>
+                                    <li class="mega_items"><a href="shop_category.jsp">Sản phẩm</a>
                                     </li>
                                 </ul> 
                             </nav> 
@@ -263,8 +264,8 @@
                         <div class="main_menu"> 
                             <nav>  
                                 <ul>
-                                    <li><a href="about.html">Chúng tôi</a></li>
-                                    <li><a href="contact.html">Liên hệ</a></li>
+                                    <li><a href="about.jsp">Chúng tôi</a></li>
+                                    <li><a href="contact.jsp">Liên hệ</a></li>
                                 </ul> 
                             </nav> 
                         </div>
@@ -374,69 +375,46 @@
     <!--banner area end-->
 
     <!--product section area start-->
-    <section class="product_section womens_product">
+    <section class="product_section womens_product bottom">
         <div class="container">
             <div class="row">   
                 <div class="col-12">
                    <div class="section_title">
                        <h2>Sản phẩm của chúng tôi</h2>
-                       <p>Các sản phẩm thiết kế hiện đại,mới nhất</p>
+                       <p>Sản phẩm mới nhất</p>
                    </div>
                 </div> 
             </div>    
             <div class="product_area"> 
-                <div class="row">
-                    <div class="col-12">
-                        <div class="product_tab_button">
-                            <ul class="nav" role="tablist">
-                                <li>
-                                    <a class="active" data-toggle="tab" href="#clothing" role="tab" aria-controls="clothing" aria-selected="true">Women’s</a>
-                                </li>
-                                <li>
-                                    <a data-toggle="tab" href="#handbag" role="tab" aria-controls="handbag" aria-selected="false">Men’s</a>
-                                </li>
-                                <li>
-                                    <a data-toggle="tab" href="#shoes" role="tab" aria-controls="shoes" aria-selected="false">Kid's</a>
-                                </li>
-                                <li>
-                                    <a data-toggle="tab" href="#accessories" role="tab" aria-controls="accessories" aria-selected="false">Shoes</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                 <div class="tab-content">
-                      <div class="tab-pane fade show active" id="clothing" role="tabpanel">
-                             <div class="product_container">
-                                <div class="row product_column4">
-                                    <!-- Sản phẩm -->
-                                    <div class="col-lg-3">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a class="primary_img" href="product-details.html"><img src="assets/img/product/product6.jpg" alt=""></a>
-                                                <a class="secondary_img" href="product-details.html"><img src="assets/img/product/product5.jpg" alt=""></a>
+                 <div class="row">
+                    <div class="product_carousel product_three_column4 owl-carousel">
+                        <div class="col-lg-3">
+                            <div class="single_product">
+                                <div class="product_thumb">
+                                    <a class="primary_img" href="product-details.html"><img src="assets/img/product/product21.jpg" alt=""></a>
+                                    <a class="secondary_img" href="product-details.html"><img src="assets/img/product/product22.jpg" alt=""></a>
 
-                                                <div class="quick_button">
-                                                    <a href="#" title="quick_view">Xem sản phẩm</a>
-                                                </div>
+                                    <div class="quick_button">
+                                        <a href="#" title="quick_view">Xem sản phẩm</a>
+                                    </div>
 
-                                            </div>
-                                            <div class="product_content">
-                                                <h3><a href="product-details.html">Beats Solo2 Solo 2</a></h3>
-                                                <span class="current_price">£60.00</span>
-                                            </div>
-                                        </div>
+                                    <div class="product_sale">
+                                        <span>-20%</span>
                                     </div>
                                 </div>
+                                <div class="product_content">
+                                    <h3><a href="product-details.html">Giày thể thao</a></h3>
+                                    <span class="current_price">300.000</span>
+                                    <span class="old_price">420.000</span>
+                                </div>
                             </div>
-                      </div>
+                        </div>
+                    </div>
                 </div>
             </div>
                
         </div>
     </section>
-    <!--product section area end-->
-    
     <!--banner area start-->
     <section class="banner_section banner_section_three">
         <div class="container-fluid">

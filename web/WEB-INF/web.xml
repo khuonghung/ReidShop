@@ -4,9 +4,45 @@
         <servlet-name>UserControll</servlet-name>
         <servlet-class>Controller.UserControll</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Product</servlet-name>
+        <servlet-class>Controller.Product</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProductManager</servlet-name>
+        <servlet-class>Controller.Admin.ProductManager</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Dashboard</servlet-name>
+        <servlet-class>Controller.Admin.Dashboard</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderManager</servlet-name>
+        <servlet-class>Controller.Admin.OrderManager</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustomerManager</servlet-name>
+        <servlet-class>Controller.Admin.CustomerManager</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UploadFileServlet</servlet-name>
+        <servlet-class>Controller.Upload.UploadFileServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
-        <servlet-name>UserControll</servlet-name>
-        <url-pattern>/login</url-pattern>
+        <servlet-name>ProductManager</servlet-name>
+        <url-pattern>/productmanager</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Dashboard</servlet-name>
+        <url-pattern>/dashboard</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderManager</servlet-name>
+        <url-pattern>/ordermanager</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomerManager</servlet-name>
+        <url-pattern>/customermanager</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

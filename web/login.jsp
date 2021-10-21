@@ -24,7 +24,7 @@
     <!-- Plugins CSS -->
     <link rel="stylesheet" href="assets/css/plugins.css">
     
-    <!-- Main Style CSS -->
+    <!-- Main Style CSS -- >
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
@@ -367,6 +367,11 @@
                                 <label>Passwords <span>*</span></label>
                                 <input type="password">
                              </p>
+                             <p>   
+                                <label> Reenter Passwords <span>*</span></label>
+                                <input type="repassword">
+                             </p>
+                             
                             <div class="login_submit">
                                 <button type="submit">Register</button>
                             </div>
