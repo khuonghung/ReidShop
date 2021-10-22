@@ -85,7 +85,7 @@ public class productDAO {
     }
 
     public void ProductDelete(String product_id) {
-        String sql = "delete from product where product_id=?";
+         String sql = "delete from product_size where product_id=?";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(sql);
@@ -95,7 +95,7 @@ public class productDAO {
             System.out.println(e);
         }
 
-        String sql1 = "delete from product_size where product_id=?";
+        String sql1 = "delete from product_color where product_id=?";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(sql1);
@@ -105,7 +105,7 @@ public class productDAO {
             System.out.println(e);
         }
 
-        String sql2 = "delete from product_color where product_id=?";
+        String sql2 = "delete from product_img where product_id=?";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(sql2);
@@ -114,11 +114,11 @@ public class productDAO {
         } catch (Exception e) {
             System.out.println(e);
         }
-
-        String sql3 = "delete from product_img where product_id=?";
+        
+        String sq3 = "delete from product where product_id=?";
         try {
             conn = new DBContext().getConnection();
-            ps = conn.prepareStatement(sql3);
+            ps = conn.prepareStatement(sq3);
             ps.setString(1, product_id);
             ps.executeUpdate();
         } catch (Exception e) {
