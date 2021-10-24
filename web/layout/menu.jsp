@@ -39,69 +39,22 @@
         </div>
         <div class="cart_area">
             <div class="cart_link">
-                <a href="#"><i class="fa fa-shopping-basket"></i>2 sản phẩm</a>
-                <!--mini cart-->
-                <div class="mini_cart">
-                    <div class="cart_item top">
-                        <div class="cart_img">
-                            <a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a>
-                        </div>
-                        <div class="cart_info">
-                            <a href="#">Apple iPhone SE 16GB</a>
-
-                            <span>1x $60.00</span>
-
-                        </div>
-                        <div class="cart_remove">
-                            <a href="#"><i class="ion-android-close"></i></a>
-                        </div>
-                    </div>
-                    <div class="cart_item bottom">
-                        <div class="cart_img">
-                            <a href="#"><img src="assets/img/s-product/product2.jpg" alt=""></a>
-                        </div>
-                        <div class="cart_info">
-                            <a href="#">Marshall Portable  Bluetooth</a>
-                            <span> 1x $160.00</span>
-                        </div>
-                        <div class="cart_remove">
-                            <a href="#"><i class="ion-android-close"></i></a>
-                        </div>
-                    </div>
-                    <div class="cart__table">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td class="text-left">Tổng cộng  :</td>
-                                    <td class="text-right">$184.00</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="cart_button view_cart">
-                        <a href="cart.jsp">Giỏ hàng</a>
-                    </div>
-                    <div class="cart_button checkout">
-                        <a href="checkout.jsp">Thanh toán</a>
-                    </div>
-                </div>
-                <!--mini cart end-->
+                <a href="#"><i class="fa fa-shopping-basket"></i>Giỏ Hàng</a>
             </div>
         </div>
         <div id="menu" class="text-left ">
             <ul class="offcanvas_main_menu">
                 <li class="active">
-                    <a href="index.jsp">Trang chủ</a>
+                    <a href="home">Trang chủ</a>
                 </li>
                 <li class="active">
-                    <a href="shop_category.jsp">Sản phẩm</a>
+                    <a href="product">Sản phẩm</a>
                 </li>
                 <li class="menu-item-has-children">
-                    <a href="about.jsp">Chúng tôi</a>
+                    <a href="about">Chúng tôi</a>
                 </li>
                 <li class="menu-item-has-children">
-                    <a href="contact.jsp">Liên hệ</a> 
+                    <a href="contact">Liên hệ</a> 
                 </li>
             </ul>
         </div>
@@ -172,52 +125,7 @@
                     <div class="col-lg-4">
                         <div class="cart_area">
                             <div class="cart_link">
-                                <a href="#"><i class="fa fa-shopping-basket"></i>2 sản phẩm</a>
-                                <!--mini cart-->
-                                <div class="mini_cart">
-                                    <div class="cart_item top">
-                                        <div class="cart_img">
-                                            <a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a>
-                                        </div>
-                                        <div class="cart_info">
-                                            <a href="#">Apple iPhone SE 16GB</a>
-                                            <span>1x $60.00</span>
-                                        </div>
-                                        <div class="cart_remove">
-                                            <a href="#"><i class="ion-android-close"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="cart_item bottom">
-                                        <div class="cart_img">
-                                            <a href="#"><img src="assets/img/s-product/product2.jpg" alt=""></a>
-                                        </div>
-                                        <div class="cart_info">
-                                            <a href="#">Marshall Portable  Bluetooth</a>
-                                            <span> 1x $160.00</span>
-                                        </div>
-                                        <div class="cart_remove">
-                                            <a href="#"><i class="ion-android-close"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="cart__table">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="text-left">Tổng đơn:</td>
-                                                    <td class="text-right">$184.00</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                    <div class="cart_button view_cart">
-                                        <a href="cart.html">Giỏ hàng</a>
-                                    </div>
-                                    <div class="cart_button checkout">
-                                        <a href="checkout.html">Thanh toán</a>
-                                    </div>
-                                </div>
-                                <!--mini cart end-->
+                                <a href="#"><i class="fa fa-shopping-basket"></i>Giỏ Hàng</a>
                             </div>
                         </div>
                     </div>
@@ -228,9 +136,9 @@
                     <div class="main_menu"> 
                         <nav>  
                             <ul>
-                                <li><a href="index.jsp">Trang chủ<i class="fa"></i></a>
+                                <li><a href="home">Trang chủ<i class="fa"></i></a>
                                 </li>
-                                <li class="mega_items"><a href="shop_category.jsp">Sản phẩm</a>
+                                <li class="mega_items"><a href="product">Sản phẩm</a>
                                 </li>
                             </ul> 
                         </nav> 
@@ -240,8 +148,8 @@
                     <div class="main_menu"> 
                         <nav>  
                             <ul>
-                                <li><a href="about.jsp">Chúng tôi</a></li>
-                                <li><a href="contact.jsp">Liên hệ</a></li>
+                                <li><a href="about">Chúng tôi</a></li>
+                                <li><a href="contact">Liên hệ</a></li>
                             </ul> 
                         </nav> 
                     </div>
@@ -260,10 +168,10 @@
                         <div class="main_menu"> 
                             <nav>  
                                 <ul>
-                                    <li class="active"><a href="index.html">Trang chủ</a></li>
-                                    <li><a href="shop_category.html">Của hàng</a></li>
-                                    <li><a href="about.html">Chúng tôi</a></li>
-                                    <li><a href="contact.html">Liên hệ</a></li>
+                                    <li class="active"><a href="home">Trang chủ</a></li>
+                                    <li><a href="product">Sản phẩm</a></li>
+                                    <li><a href="about">Chúng tôi</a></li>
+                                    <li><a href="contact">Liên hệ</a></li>
                                 </ul>   
                             </nav> 
                         </div>
