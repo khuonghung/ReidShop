@@ -37,7 +37,7 @@
     <div class="off_canvars_overlay">
                 
     </div>
-    <jsp:include page="layout/menu.jsp.jsp"/>
+    <jsp:include page="layout/menu.jsp"/>
     <!--breadcrumbs area start-->
     <div class="breadcrumbs_area other_bread">
         <div class="container">   
