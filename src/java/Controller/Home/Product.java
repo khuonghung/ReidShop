@@ -62,8 +62,9 @@ public class Product extends HttpServlet {
         
         if(action.equalsIgnoreCase("listByCategory")){
             String category_id = request.getParameter("category_id");
+            int category_id1 = Integer.parseInt(category_id);
             productDAO c = new productDAO();
-            List<Entity.Product> productList = c.getProductByCategory(category_id);
+            List<Entity.Product> productList = c.getProductByCategory(category_id1);
             List<Category> category = c.getCategory();
             int page, numperpage = 9;
             int size = productList.size();
@@ -83,6 +84,21 @@ public class Product extends HttpServlet {
             request.setAttribute("CategoryData", category);
             request.setAttribute("ProductData", product);
             request.getRequestDispatcher("shop_category.jsp").forward(request, response);
+        }
+        
+        if(action.equalsIgnoreCase("productdetail")){
+            String product_id = request.getParameter("product_id");
+            productDAO c = new productDAO();
+            List<Entity.Size> sizeList = c.getSizeByID(product_id);
+            List<Entity.Color> colorList = c.getColorByID(product_id);
+            Entity.Product product = c.getProductByID(product_id);
+            int category_id = product.getCate().getCategory_id();
+            List<Entity.Product> productByCategory = c.getProductByCategory(category_id);
+            request.setAttribute("ProductData", product);
+            request.setAttribute("SizeData", sizeList);
+            request.setAttribute("ColorData", colorList);
+            request.setAttribute("ProductByCategory", productByCategory);
+            request.getRequestDispatcher("product-details.jsp").forward(request, response);
         }
     }
 

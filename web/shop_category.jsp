@@ -108,15 +108,15 @@
                                     <div class="col-lg-4 col-md-4 col-12 ">
                                         <div class="single_product">
                                             <div class="product_thumb">
-                                                <a class="primary_img" href="product-details.html"><img src="${p.img}" alt=""></a>
+                                                <a class="primary_img" href="product?action=productdetail&product_id=${p.product_id}"><img src="${p.img}" alt=""></a>
 
                                                 <div class="quick_button">
-                                                    <a href="product-details.html"title="quick_view">Xem sản phẩm</a>
+                                                    <a href="product?action=productdetail&product_id=${p.product_id}"title="quick_view">Xem sản phẩm</a>
                                                 </div>
                                             </div>
 
                                             <div class="product_content grid_content">
-                                                <h3><a href="product-details.html">${p.product_name}</a></h3>
+                                                <h3><a href="product?action=productdetail&product_id=${p.product_id}">${p.product_name}</a></h3>
                                                 <span class="current_price">${p.product_price}</span>
                                             </div>
                                         </div>
@@ -130,13 +130,13 @@
                                         <c:forEach begin="${1}" end="${num}" var="i">
                                             <li class="${i==page?"current":""}"><a href="product?page=${i}">${i}</a></li>
                                         </c:forEach>
+                                            
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>   
-
+                </div>
             </div>
         </div>
         <!--shop  area end-->
