@@ -121,7 +121,7 @@
                                 </address>
                                 <p> New York</p>   
                             </div>
-                            <div class="tab-pane fade" id="account-details">
+                            <div class="tab-pane fade show active" id="account-details">
                                 <h3>Account details </h3>
                                 <div class="login">
                                     <div class="login_form_container">
