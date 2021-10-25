@@ -3,7 +3,7 @@
     Created on : Oct 17, 2021, 8:28:36 AM
     Author     : Khuong Hung
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class="no-js" lang="vi">
@@ -119,24 +119,25 @@
                 <div class="product_area"> 
                     <div class="row">
                         <div class="product_carousel product_three_column4 owl-carousel">
-                            <div class="col-lg-3">
-                                <div class="single_product">
-                                    <div class="product_thumb">
-                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product21.jpg" alt=""></a>
-                                        <div class="quick_button">
-                                            <a href="#" title="quick_view">Xem sản phẩm</a>
+                            <c:forEach items="${top10}" var="top10">
+                                <div class="col-lg-3">
+                                    <div class="single_product">
+                                        <div class="product_thumb">
+                                            <a class="primary_img" href="product?action=productdetail&product_id=${top10.product_id}"><img src="${top10.img}" width="10px;" alt=""></a>
+                                            <div class="quick_button">
+                                                <a href="product?action=productdetail&product_id=${top10.product_id}" title="quick_view">Xem sản phẩm</a>
+                                            </div>
+                                        </div>
+                                        <div class="product_content">
+                                            <h3><a href="product?action=productdetail&product_id=${top10.product_id}">${top10.product_name}</a></h3>
+                                            <span class="current_price">${top10.product_price}đ</span>
                                         </div>
                                     </div>
-                                    <div class="product_content">
-                                        <h3><a href="product-details.html">Giày thể thao</a></h3>
-                                        <span class="current_price">300.000</span>
-                                    </div>
                                 </div>
-                            </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
         <!--banner area start-->
@@ -208,7 +209,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
         <!--product section area end-->
@@ -223,9 +223,6 @@
 
         <!-- Main JS -->
         <script src="assets/js/main.js"></script>
-
-
-
     </body>
 
 </html>
