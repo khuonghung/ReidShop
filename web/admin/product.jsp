@@ -88,146 +88,155 @@
                                             class="fas fa-print"></i> In dữ liệu</a>
                                 </div>
                             </div>
-                            <table class="table table-hover table-bordered" id="sampleTable">
-                                <thead>
-                                    <tr>
-                                        <th>Mã sản phẩm</th>
-                                        <th>Danh mục</th>
-                                        <th>Tên sản phẩm</th>
-                                        <th>Giá</th>
-                                        <th>Size</th>
-                                        <th>Màu</th>
-                                        <th>Thông tin</th>
-                                        <th>Số lượng</th>
-                                        <th>Ảnh</th>
-                                        <th>Chức năng</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach items="${ProductData}" var="p">
-
-
+                            <form action="productmanager?action=updateproduct" method="POST">
+                                <table class="table table-hover table-bordered" id="sampleTable">
+                                    <thead>
                                         <tr>
-                                            <td>${p.product_id}</td>
-                                            <td>${p.cate.category_name}</td>
-                                            <td>${p.product_name}</td>
-                                            <td>${p.product_price}</td>
-                                            <td>
-                                                <c:forEach items="${SizeData}" var="s">
-                                                    <c:if test="${p.product_id==s.product_id}">
-                                                        ${s.size}   
-                                                    </c:if>
-                                                </c:forEach>
-                                            </td>
-
-                                            <td>
-                                                <c:forEach items="${ColorData}" var="c">
-                                                    <c:if test="${p.product_id==c.product_id}">
-                                                        ${c.color}   
-                                                    </c:if>
-                                                </c:forEach>
-                                            </td>
-                                            <td>${p.product_describe}</td>
-                                            <td>${p.quantity}</td>
-                                            <td><img src="${p.img}" alt="" width="100px;"></td>
-
-                                            <td>
-                                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa" value="${p.product_id}"><i
-                                                        class="fas fa-trash-alt"></i>
-                                                </button>
-                                                <button class="btn btn-primary btn-sm edit" type="submit" title="Sửa" id="show-emp"
-                                                        data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i>
-                                                </button>
-                                            </td>
+                                            <th>Mã sản phẩm</th>
+                                            <th>Danh mục</th>
+                                            <th>Tên sản phẩm</th>
+                                            <th>Giá</th>
+                                            <th>Size</th>
+                                            <th>Màu</th>
+                                            <th>Thông tin</th>
+                                            <th>Số lượng</th>
+                                            <th>Ảnh</th>
+                                            <th>Chức năng</th>
                                         </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items="${ProductData}" var="p">
 
+
+                                            <tr>
+                                                <td>${p.product_id}</td>
+                                                <td>${p.cate.category_name}</td>
+                                                <td>${p.product_name}</td>
+                                                <td>${p.product_price}</td>
+                                                <td>
+                                                    <c:forEach items="${SizeData}" var="s">
+                                                        <c:if test="${p.product_id==s.product_id}">
+                                                            ${s.size}   
+                                                        </c:if>
+                                                    </c:forEach>
+                                                </td>
+
+                                                <td>
+                                                    <c:forEach items="${ColorData}" var="c">
+                                                        <c:if test="${p.product_id==c.product_id}">
+                                                            ${c.color}   
+                                                        </c:if>
+                                                    </c:forEach>
+                                                </td>
+                                                <td>${p.product_describe}</td>
+                                                <td>${p.quantity}</td>
+                                                <td><img src="${p.img}" alt="" width="100px;"></td>
+
+                                                <td>
+                                                    <button class="btn btn-primary btn-sm trash" type="button" title="Xóa" value="${p.product_id}"><i
+                                                            class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                                                            data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <!--
+                                            MODAL
+                                            -->
+
+                                        <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+                                             data-keyboard="false">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="form-group  col-md-12">
+                                                                <span class="thong-tin-thanh-toan">
+                                                                    <h5>Chỉnh sửa thông tin sản phẩm</h5>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="form-group col-md-6">
+                                                                <label class="control-label">Mã sản phẩm </label>
+                                                                <input class="form-control" type="text" readonly name="product_id" value="${p.product_id}">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="exampleSelect1" class="control-label">Danh mục</label>
+                                                                <select name="category_id" class="form-control" id="exampleSelect1">
+                                                                    <option>-- Chọn danh mục --</option>
+                                                                    <c:forEach items="${CategoryData}" var="cat">
+                                                                        <option value="${cat.category_id}">${cat.category_name}</option>
+                                                                    </c:forEach>
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label class="control-label">Tên sản phẩm</label>
+                                                                <input class="form-control" type="text" name="product_name" required value="${p.product_name}">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label class="control-label">Giá</label>
+                                                                <input class="form-control" type="number" name="product_price" required value="${p.product_price}">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label class="control-label">Màu</label>
+                                                                <input class="form-control" name="product_color" type="text" value="<c:forEach items="${ColorData}" var="c"><c:if test="${p.product_id==c.product_id}">${c.color},</c:if></c:forEach>">
+                                                            </div>
+
+                                                            <div class="form-group col-md-6">
+                                                                 <label class="control-label">Size</label>
+                                                                <input class="form-control" name="product_size" type="text" value="<c:forEach items="${SizeData}" var="s"><c:if test="${p.product_id==s.product_id}">${s.size},</c:if></c:forEach>">
+                                                            </div>
+
+                                                            <div class="form-group col-md-6">
+                                                                <label class="control-label">Thông tin</label>
+                                                                <input class="form-control" type="text" name="product_describe" value="${p.product_describe}">
+                                                            </div>
+
+                                                            <div class="form-group col-md-6">
+                                                                <label class="control-label">Số lượng</label>
+                                                                <input class="form-control" type="text" name="product_quantity" value="${p.quantity}">
+                                                            </div>
+                                                            <!--anh san pham-->
+                                                            <div class="form-group col-md-12">
+                                                                <label class="control-label">Ảnh sản phẩm</label>
+                                                                <div id="myfileupload">
+                                                                    <input type="file" id="uploadfile" name="product_img" value="${p.img}" onchange="readURL(this);" />
+                                                                </div>
+                                                                <div id="thumbbox">
+                                                                    <img height="450" width="400" alt="Thumb image" id="thumbimage" style="display: none" />
+                                                                    <a class="removeimg" href="javascript:"></a>
+                                                                </div>
+                                                                <div id="boxchoice">
+                                                                    <a href="javascript:" class="Choicefile"><i class="fas fa-cloud-upload-alt"></i> Chọn ảnh</a>
+                                                                    <p style="clear:both"></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <BR>
+                                                        <button class="btn btn-save" type="submit">Lưu lại</button>
+                                                        <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+                                                        <BR>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--
+                                      MODAL
+                                        -->
                                     </c:forEach>
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
 
-        <!--
-        MODAL
-        -->
-        <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
-             data-keyboard="false">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
 
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="form-group  col-md-12">
-                                <span class="thong-tin-thanh-toan">
-                                    <h5>Chỉnh sửa thông tin sản phẩm cơ bản</h5>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label class="control-label">Mã sản phẩm </label>
-                                <input class="form-control" type="text" value="product">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label class="control-label">Tên sản phẩm</label>
-                                <input class="form-control" type="text" required value="Bàn ăn gỗ Theresa">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label class="control-label">Mã sản phẩm </label>
-                                <input class="form-control" type="number" value="71309005">
-                            </div>
-                            <div class="form-group  col-md-6">
-                                <label class="control-label">Số lượng</label>
-                                <input class="form-control" type="number" required value="20">
-                            </div>
-                            <div class="form-group col-md-6 ">
-                                <label for="exampleSelect1" class="control-label">Tình trạng sản phẩm</label>
-                                <select class="form-control" id="exampleSelect1">
-                                    <option>Còn hàng</option>
-                                    <option>Hết hàng</option>
-                                    <option>Đang nhập hàng</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label class="control-label">Giá bán</label>
-                                <input class="form-control" type="text" value="5.600.000">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="exampleSelect1" class="control-label">Danh mục</label>
-                                <select class="form-control" id="exampleSelect1">
-                                    <option>Bàn ăn</option>
-                                    <option>Bàn thông minh</option>
-                                    <option>Tủ</option>
-                                    <option>Ghế gỗ</option>
-                                    <option>Ghế sắt</option>
-                                    <option>Giường người lớn</option>
-                                    <option>Giường trẻ em</option>
-                                    <option>Bàn trang điểm</option>
-                                    <option>Giá đỡ</option>
-                                </select>
-                            </div>
-                        </div>
-                        <BR>
-                        <a href="#" style="    float: right;
-                           font-weight: 600;
-                           color: #ea0000;">Chỉnh sửa sản phẩm nâng cao</a>
-                        <BR>
-                        <BR>
-                        <button class="btn btn-save" type="button">Lưu lại</button>
-                        <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
-                        <BR>
-                    </div>
-                    <div class="modal-footer">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--
-      MODAL
-        -->
 
         <!-- Essential javascripts for application to work-->
         <script src="admin/js/jquery-3.2.1.min.js"></script>
@@ -243,51 +252,51 @@
         <script type="text/javascript" src="admin/js/plugins/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="admin/js/plugins/dataTables.bootstrap.min.js"></script>
         <script type="text/javascript">
-                                        $('#sampleTable').DataTable();
-                                        //Thời Gian
-                                        function time() {
-                                            var today = new Date();
-                                            var weekday = new Array(7);
-                                            weekday[0] = "Chủ Nhật";
-                                            weekday[1] = "Thứ Hai";
-                                            weekday[2] = "Thứ Ba";
-                                            weekday[3] = "Thứ Tư";
-                                            weekday[4] = "Thứ Năm";
-                                            weekday[5] = "Thứ Sáu";
-                                            weekday[6] = "Thứ Bảy";
-                                            var day = weekday[today.getDay()];
-                                            var dd = today.getDate();
-                                            var mm = today.getMonth() + 1;
-                                            var yyyy = today.getFullYear();
-                                            var h = today.getHours();
-                                            var m = today.getMinutes();
-                                            var s = today.getSeconds();
-                                            m = checkTime(m);
-                                            s = checkTime(s);
-                                            nowTime = h + " giờ " + m + " phút " + s + " giây";
-                                            if (dd < 10) {
-                                                dd = '0' + dd
-                                            }
-                                            if (mm < 10) {
-                                                mm = '0' + mm
-                                            }
-                                            today = day + ', ' + dd + '/' + mm + '/' + yyyy;
-                                            tmp = '<span class="date"> ' + today + ' - ' + nowTime +
-                                                    '</span>';
-                                            document.getElementById("clock").innerHTML = tmp;
-                                            clocktime = setTimeout("time()", "1000", "Javascript");
+                                                                        $('#sampleTable').DataTable();
+                                                                        //Thời Gian
+                                                                        function time() {
+                                                                            var today = new Date();
+                                                                            var weekday = new Array(7);
+                                                                            weekday[0] = "Chủ Nhật";
+                                                                            weekday[1] = "Thứ Hai";
+                                                                            weekday[2] = "Thứ Ba";
+                                                                            weekday[3] = "Thứ Tư";
+                                                                            weekday[4] = "Thứ Năm";
+                                                                            weekday[5] = "Thứ Sáu";
+                                                                            weekday[6] = "Thứ Bảy";
+                                                                            var day = weekday[today.getDay()];
+                                                                            var dd = today.getDate();
+                                                                            var mm = today.getMonth() + 1;
+                                                                            var yyyy = today.getFullYear();
+                                                                            var h = today.getHours();
+                                                                            var m = today.getMinutes();
+                                                                            var s = today.getSeconds();
+                                                                            m = checkTime(m);
+                                                                            s = checkTime(s);
+                                                                            nowTime = h + " giờ " + m + " phút " + s + " giây";
+                                                                            if (dd < 10) {
+                                                                                dd = '0' + dd
+                                                                            }
+                                                                            if (mm < 10) {
+                                                                                mm = '0' + mm
+                                                                            }
+                                                                            today = day + ', ' + dd + '/' + mm + '/' + yyyy;
+                                                                            tmp = '<span class="date"> ' + today + ' - ' + nowTime +
+                                                                                    '</span>';
+                                                                            document.getElementById("clock").innerHTML = tmp;
+                                                                            clocktime = setTimeout("time()", "1000", "Javascript");
 
-                                            function checkTime(i) {
-                                                if (i < 10) {
-                                                    i = "0" + i;
-                                                }
-                                                return i;
-                                            }
-                                        }
+                                                                            function checkTime(i) {
+                                                                                if (i < 10) {
+                                                                                    i = "0" + i;
+                                                                                }
+                                                                                return i;
+                                                                            }
+                                                                        }
         </script>
         <script>
 
-                $(document).ready(jQuery(function () {
+            $(document).ready(jQuery(function () {
                 jQuery(".trash").click(function () {
                     swal({
                         title: "Cảnh báo",
@@ -300,7 +309,7 @@
                                     swal("Đã xóa thành công.!", {
                                     });
                                 }
-                        });
+                            });
                 });
             }));
         </script>

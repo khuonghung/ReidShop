@@ -40,9 +40,9 @@
                 <div class="col-12">
                     <div class="breadcrumb_content">
                         <ul>
-                            <li><a href="index.html">home</a></li>
+                            <li><a href="index.html">Trang chủ</a></li>
                             <li>/</li>
-                            <li>about us</li>
+                            <li>Giới thiệu</li>
                         </ul>
                     </div>
                 </div>

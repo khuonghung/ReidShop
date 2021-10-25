@@ -11,7 +11,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Cart page</title>
+        <title>Giỏ hàng</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
@@ -38,9 +38,9 @@
                     <div class="col-12">
                         <div class="breadcrumb_content">
                             <ul>
-                                <li><a href="index.html">home</a></li>
+                                <li><a href="index.html">Trang chủ</a></li>
                                 <li>/</li>
-                                <li>cart</li>
+                                <li>Giỏ hàng</li>
                             </ul>
                         </div>
                     </div>

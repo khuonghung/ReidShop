@@ -44,9 +44,9 @@
                     <div class="col-12">
                         <div class="breadcrumb_content">
                             <ul>
-                                <li><a href="home">home</a></li>
+                                <li><a href="home">Trang chủ</a></li>
                                 <li>/</li>
-                                <li>shop</li>
+                                <li>Cửa hàng</li>
                             </ul>
                         </div>
                     </div>
@@ -64,9 +64,9 @@
                             <!--sidebar widget start-->
                             <div class="sidebar_widget">
                                 <div class="widget_list widget_categories">
-                                    <h2>Product categories</h2>
+                                    <h2>Danh mục</h2>
                                     <ul>
-                                        <li><a href="product">Tất cả</a></li>
+                                        <li><a href="product">TẤT CẢ</a></li>
                                         <c:forEach items="${CategoryData}" var="c">
                                             <li><a href="product?action=listByCategory&category_id=${c.category_id}">${c.category_name}</a></li>
                                             </c:forEach>
@@ -79,7 +79,7 @@
                             <!--shop wrapper start-->
                             <!--shop toolbar start-->
                             <div class="shop_title">
-                                <h1>shop</h1>
+                                <h2>Sản phẩm</h2>
                             </div>
 <!--                            <div class="shop_toolbar_wrapper">
                                 <div class=" niceselect_option">
