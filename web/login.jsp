@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -54,26 +55,30 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="account_form">
                             <h2>Đăng nhập</h2>
-                            <form action="#">
-                                <p>   
-                                    <label>Email <span>*</span></label>
-                                    <input type="text">
-                                </p>
-                                <p>   
-                                    <label>Mật khẩu <span>*</span></label>
-                                    <input type="password">
-                                </p>   
-                                <div class="login_submit">
-                                    <a href="#">Quên mật khẩu</a>
-                                    <label for="remember">
-                                        <input id="remember" type="checkbox">
-                                        Remember me
-                                    </label>
-                                    <button type="submit">Đăng nhập</button>
+                            <c:set var="cookie" value="${pageContext.request.cookies}"/>
+                                <form action="user?action=checkLogin" method="POST">
+                                    <p style="color: red; align-content: center;">
+                                        ${requestScope.error}
+                                    </p>
+                                    <p>   
+                                        <label>Email <span>*</span></label>
+                                        <input name="user_email" type="text" value="${cookie.email.value}">
+                                    </p>
+                                    <p>   
+                                        <label>Mật khẩu <span>*</span></label>
+                                        <input name="user_pass" type="password" value="${cookie.pass.value}">
+                                    </p>   
+                                    <div class="login_submit">
+                                        <a href="#">Quên mật khẩu</a>
+                                        <label for="remember">
+                                            <input ${(cookie.rem.value eq 'ON')?"checked":""} id="remember" name="remember" value="ON" type="checkbox">
+                                            Remember me
+                                        </label>
+                                        <button type="submit">Đăng nhập</button>
 
-                                </div>
+                                    </div>
 
-                            </form>
+                                </form>
                         </div>    
                     </div>
                     <!--login area start-->

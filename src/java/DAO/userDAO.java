@@ -16,55 +16,38 @@ import java.sql.ResultSet;
  * @author Khuong Hung
  */
 public class userDAO {
+
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
-    
-    public User check(String user_email, String user_pass){
-            try {
-                String query = "select * from users where user_email = ? and user_pass = ?";
-                conn = new DBContext().getConnection();
-                ps = conn.prepareStatement(query);
-                ps.setString(1, user_email);
-                ps.setString(2, user_pass); 
-                rs = ps.executeQuery();
-                
-                while(rs.next()){
-                   User a = new User(rs.getString(1),rs.getString(2));
-                   return a;
-                }
-            } catch (Exception e) {
+
+    public User checkUser(String user_email, String user_pass) {
+        try {
+            String query = "select * from users where user_email = ? and user_pass = ?";
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, user_email);
+            ps.setString(2, user_pass);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+                return user;
             }
+        } catch (Exception e) {
+        }
         return null;
     }
-//    public Account checkAcc(String user){
-//            try {
-//                String query = "select * from users where user_email = ?";
-//                conn = new DBContext().getConnection();
-//                ps = conn.prepareStatement(query);
-//                ps.setString(1, user);
-//                rs = ps.executeQuery();
-//                while(rs.next()){
-//                   Account a = new Account(rs.getString(1),rs.getString(2));
-//                   return a;
-//                }
-//            } catch (Exception e) {
-//            }
-//        return null;
-//    }
-//    public void signup(String user, String pass){
-//            try {
-//                String query = "insert into users values(?,?,?,?,?)";
-//                conn = new DBContext().getConnection();
-//                ps = conn.prepareStatement(query);
-//                ps.setString(1, "1");
-//                ps.setString(2, pass); 
-//                ps.setString(3, user);
-//                ps.setString(4, "0"); 
-//                ps.setString(5, pass); 
-//                ps.executeUpdate();
-//                
-//            } catch (Exception e) {
-//            };
-//    }
+    
+    public void updateUser(int user_id, String user_name, String user_pass) {
+      String sql = "update users set user_name =? , user_pass = ? where user_id = ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, user_name);
+            ps.setString(2, user_pass);
+            ps.setInt(3, user_id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
 }
