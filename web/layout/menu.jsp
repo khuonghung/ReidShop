@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="offcanvas_menu">
     <div class="canvas_open">
@@ -24,9 +25,25 @@
             <ul>
                 <li class="top_links"><a href="#">Tài Khoản của tôi <i class="ion-chevron-down"></i></a>
                     <ul class="dropdown_links">
-                        <li><a href="my-account.jsp">Tài khoản</a></li>
-                        <li><a href="login.jsp">Đăng nhập</a></li>
-                        <li><a href="dashboard">Quản lý</a></li>
+                        <c:if test="${sessionScope.user.user_name!=null}">
+                            <li><a href="my-account.html">${sessionScope.user.user_name}</a></li>
+                            </c:if>
+
+                        <c:if test="${sessionScope.user.user_name == null}">
+                            <li><a href="user?action=myaccount">Tài khoản của tôi</a></li>
+                            </c:if>
+
+                        <c:if test="${sessionScope.user == null}">
+                            <li><a href="user?action=login">Đăng nhập</a></li>
+                            </c:if>
+
+                        <c:if test="${sessionScope.user != null}">
+                            <li><a href="user?action=login">Đăng xuất</a></li>
+                            </c:if>
+
+                        <c:if test="${sessionScope.user.isAdmin==1}">
+                            <li><a href="dashboard">Quản lý</a></li>
+                            </c:if>
                     </ul>
                 </li> 
             </ul>
@@ -89,11 +106,31 @@
                 <div class="col-lg-5 col-md-12">
                     <div class="top_right text-right">
                         <ul>
-                            <li class="top_links"><a href="#">Tài khoản của tôi<i class="ion-chevron-down"></i></a>
+
+                            <c:if test="${sessionScope.user != null}">
+                                <li class="top_links"><a href="#">Xin chào ${sessionScope.user.user_name}<i class="ion-chevron-down"></i></a>
+                                    </c:if>
+                                    <c:if test="${sessionScope.user == null}">
+                                <li class="top_links"><a href="#">Đăng nhập<i class="ion-chevron-down"></i></a>
+                                    </c:if>
                                 <ul class="dropdown_links">
-                                    <li><a href="my-account.html">Tài khoản của tôi</a></li>
-                                    <li><a href="#">Đăng nhập</a></li>
-                                    <li><a href="dashboard">Quản lý</a></li>
+                                    <c:if test="${sessionScope.user != null}">
+                                        <li><a href="user?action=myaccount">Tài khoản của tôi</a></li>
+                                        </c:if>
+
+                                    <c:if test="${sessionScope.user.isAdmin==1}">
+                                        <li><a href="dashboard">Quản lý</a></li>
+                                        </c:if>
+
+                                    <c:if test="${sessionScope.user == null}">
+                                        <li><a href="user?action=login">Đăng nhập</a></li>
+                                        </c:if>
+
+                                    <c:if test="${sessionScope.user != null}">
+                                        <li><a href="user?action=logout">Đăng xuất</a></li>
+                                        </c:if>
+
+
                                 </ul>
                             </li> 
                         </ul>
