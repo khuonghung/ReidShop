@@ -87,18 +87,27 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="account_form register">
                             <h2>Đăng ký</h2>
-                            <form action="#">
+                            <form action="user?action=signup" method="POST">
+                                <p style="color: red; align-content: center;">
+                                        ${requestScope.error_pass}
+                                </p>
+                                <p style="color: blue; align-content: center;">
+                                        ${requestScope.done}
+                                </p>
+                                <p style="color: red; align-content: center;">
+                                        ${requestScope.emailavailable}
+                                </p>
                                 <p>   
                                     <label>Email <span>*</span></label>
-                                    <input type="text">
+                                    <input type="email" name="user_email">
                                 </p>
                                 <p>   
                                     <label>Mật khẩu <span>*</span></label>
-                                    <input type="password">
+                                    <input type="password" name="user_pass">
                                 </p>
                                 <p>   
                                     <label>Nhập lại mật khẩu <span>*</span></label>
-                                    <input type="repassword">
+                                    <input type="password" name="re_pass">
                                 </p>
                                 <div class="login_submit">
                                     <button type="submit">Đăng ký</button>

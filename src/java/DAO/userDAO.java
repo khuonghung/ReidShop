@@ -50,4 +50,33 @@ public class userDAO {
         } catch (Exception e) {
         }
     }
+    
+    public User checkAcc(String user_email){
+            try {
+                String query = "select * from users where user_email = ?";
+                conn = new DBContext().getConnection();
+                ps = conn.prepareStatement(query);
+                ps.setString(1, user_email);
+                rs = ps.executeQuery();
+                while(rs.next()){
+                   User a = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+                   return a;
+                }
+            } catch (Exception e) {
+            }
+        return null;
+    }
+    public void signup(String user_email, String user_pass){
+            try {
+                String query = "insert into users values(?,?,?,?)";
+                conn = new DBContext().getConnection();
+                ps = conn.prepareStatement(query);
+                ps.setString(1, "");
+                ps.setString(2, user_email); 
+                ps.setString(3, user_pass);
+                ps.setString(4, "False"); 
+                ps.executeUpdate();
+            } catch (Exception e) {
+            };
+    }
 }

@@ -82,7 +82,7 @@ public class User extends HttpServlet {
                 Entity.User user = (Entity.User) session.getAttribute("user");
                 if (user != null) {
                     request.getRequestDispatcher("my-account.jsp").forward(request, response);
-                }else{
+                } else {
                     response.sendRedirect("user?action=login");
                 }
             } catch (Exception e) {
@@ -103,11 +103,32 @@ public class User extends HttpServlet {
                     Entity.User user1 = new Entity.User(user.getUser_id(), user_name, user.getUser_email(), user_pass, user.getIsAdmin());
                     session.setAttribute("user", user1);
                     response.sendRedirect("user?action=myaccount");
-                }else{
+                } else {
                     response.sendRedirect("user?action=login");
                 }
             } catch (Exception e) {
                 response.sendRedirect("user?action=login");
+            }
+        }
+
+        if (action.equals("signup")) {
+            String user_email = request.getParameter("user_email");
+            String user_pass = request.getParameter("user_pass");
+            String re_pass = request.getParameter("re_pass");
+            if (!user_pass.equals(re_pass)) {
+                request.setAttribute("error_pass", "Mật khẩu không trùng khớp. Hãy nhập lại...");
+                request.getRequestDispatcher("user?action=login").forward(request, response);
+            } else {
+                userDAO dao = new userDAO();
+                Entity.User a = dao.checkAcc(user_email);
+                if (a == null) {
+                    dao.signup(user_email, user_pass);
+                    request.setAttribute("done", "Đăng ký thành công");
+                    request.getRequestDispatcher("user?action=login").forward(request, response);
+                } else {
+                    request.setAttribute("emailavailable", "Email đã tồn tại!");
+                    request.getRequestDispatcher("user?action=login").forward(request, response);
+                }
             }
         }
     }
