@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 
 <div class="offcanvas_menu">
     <div class="canvas_open">
@@ -41,7 +42,7 @@
                             <li><a href="user?action=login">Đăng xuất</a></li>
                             </c:if>
 
-                        <c:if test="${sessionScope.user.isAdmin==1}">
+                        <c:if test="${fn: toUpperCase(sessionScope.user.isAdmin) == 'TRUE'}">
                             <li><a href="dashboard">Quản lý</a></li>
                             </c:if>
                     </ul>
@@ -118,7 +119,7 @@
                                         <li><a href="user?action=myaccount">Tài khoản của tôi</a></li>
                                         </c:if>
 
-                                    <c:if test="${sessionScope.user.isAdmin==1}">
+                                    <c:if test="${fn: toUpperCase(sessionScope.user.isAdmin) == 'TRUE'}">
                                         <li><a href="dashboard">Quản lý</a></li>
                                         </c:if>
 

@@ -36,7 +36,7 @@ public class Dashboard extends HttpServlet {
         try {
             HttpSession session = request.getSession();
             Entity.User user = (User) session.getAttribute("user");
-            if (user.getIsAdmin().equals("1")) {
+            if (user.getIsAdmin().equalsIgnoreCase("true")) {
                 request.getRequestDispatcher("/admin/index.jsp").forward(request, response);
             } else {
                 response.sendRedirect("login");

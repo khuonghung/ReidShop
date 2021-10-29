@@ -48,7 +48,7 @@ public class ProductManager extends HttpServlet {
             HttpSession session = request.getSession();
             Entity.User user = (User) session.getAttribute("user");
 
-            if (user.getIsAdmin().equals("1")) {
+            if (user.getIsAdmin().equalsIgnoreCase("true")) {
                 if (action == null || action == "") {
                     productDAO c = new productDAO();
                     List<Product> product = c.getProduct();
