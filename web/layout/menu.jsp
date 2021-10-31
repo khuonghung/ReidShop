@@ -44,7 +44,7 @@
 
                         <c:if test="${fn: toUpperCase(sessionScope.user.isAdmin) == 'TRUE'}">
                             <li><a href="dashboard">Quản lý</a></li>
-                            </c:if>
+                        </c:if>
                     </ul>
                 </li> 
             </ul>
@@ -57,7 +57,7 @@
         </div>
         <div class="cart_area">
             <div class="cart_link">
-                <a href="#"><i class="fa fa-shopping-basket"></i>Giỏ Hàng</a>
+                <a href="cart?action=showcart"><i class="fa fa-shopping-basket">${sessionScope.size}</i>Giỏ Hàng</a>
             </div>
         </div>
         <div id="menu" class="text-left ">
@@ -163,7 +163,7 @@
                     <div class="col-lg-4">
                         <div class="cart_area">
                             <div class="cart_link">
-                                <a href="#"><i class="fa fa-shopping-basket"></i>Giỏ Hàng</a>
+                                <a href="cart?action=showcart"><i class="fa fa-shopping-basket"></i>${sessionScope.size} sản phẩm</a>
                             </div>
                         </div>
                     </div>

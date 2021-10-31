@@ -73,7 +73,7 @@
 
                     <div class="col-lg-7 col-md-7">
                         <div class="product_d_right">
-                            <form action="#">
+                            <form action="cart?product_id=${ProductData.product_id}" method="POST">
                                 <h1>${ProductData.product_name}</h1>
                                 <div class="product_price">
                                     <span class="current_price">${ProductData.product_price} VNĐ</span>
@@ -84,7 +84,7 @@
 
                                 <div class="product_variant color">
                                     <h3>color</h3>
-                                    <select class="niceselect_option" id="color" name="product_color">
+                                    <select class="niceselect_option" id="color" name="color">
                                         <c:forEach items="${ColorData}" var="c">
                                             <option value="${c.color}">${c.color}</option>
                                         </c:forEach>
@@ -92,7 +92,7 @@
                                 </div>
                                 <div class="product_variant size">
                                     <h3>size</h3>
-                                    <select class="niceselect_option" id="color1" name="product_size">       
+                                    <select class="niceselect_option" id="color1" name="size">       
                                         <c:forEach items="${SizeData}" var="s">
                                             <option value="${s.size}">${s.size}</option>
                                         </c:forEach>                             
@@ -100,7 +100,7 @@
                                 </div>
                                 <div class="product_variant quantity">
                                     <label>quantity</label>
-                                    <input min="1" max="${ProductData.quantity}" value="1" type="number">
+                                    <input min="1" max="${ProductData.quantity}" name="quantity" type="number">
                                     <button class="button" type="submit">Thêm vào giở hàng</button>  
                                 </div>
                             </form>
@@ -159,18 +159,22 @@
         <!--footer area start-->
         <jsp:include page="layout/footer.jsp"/>
         <!--footer area end-->
-
-        <!-- JS
-        ============================================ -->
-
+        
         <!-- Plugins JS -->
         <script src="assets/js/plugins.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
         <!-- Main JS -->
         <script src="assets/js/main.js"></script>
-
-
-
+        <script>
+//            $("#submit").click(function()){
+//            swal({
+//            title: "Thanks for Contacting us..!",
+//                    text: "We Will Contact You Soon...",
+//                    icon: "success",
+//            })
+//            }
+        </script>
     </body>
 
 </html>
