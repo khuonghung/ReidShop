@@ -54,7 +54,7 @@
         <!-- shopping cart area start -->
         <div class="shopping_cart_area">
             <div class="container">  
-                <form action="#"> 
+                <form> 
                     <div class="row">
                         <div class="col-12">
                             <div class="table_desc">
@@ -118,7 +118,7 @@
                                             <p class="cart_amount"><fmt:formatNumber pattern="##########" value="${sessionScope.total + 30000}"/></p>
                                         </div>
                                         <div class="checkout_btn">
-                                            <a href="#">Proceed to Checkout</a>
+                                            <a href="checkout">Thanh toán</a>
                                         </div>
                                     </div>
                                 </div>
