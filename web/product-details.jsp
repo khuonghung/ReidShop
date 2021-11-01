@@ -130,17 +130,6 @@
                                     <div class="single_product">
                                         <div class="product_thumb">
                                             <a class="primary_img" href="product?action=productdetail&product_id=${pc.product_id}"><img src="${pc.img}" alt=""></a>
-                                            <div class="product_action">
-                                                <div class="hover_action">
-                                                    <a  href="#"><i class="fa fa-plus"></i></a>
-                                                    <div class="action_button">
-                                                        <ul>
-                                                            <li><a title="add to cart" href="cart.html"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                            </div>
                                         </div>
                                         <div class="product_content">
                                             <h3><a href="product?action=productdetail&product_id=${pc.product_id}">${pc.product_name}</a></h3>
