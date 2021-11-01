@@ -40,7 +40,7 @@
                             <div class="slider_content content_one">
                                 <img src="assets/img/slider/content3.png" alt="">
                                 <p>the wooboom clothing summer collection is back at half price</p>
-                                <a href="shop.html">Discover Now</a>
+                                <a href="product">Discover Now</a>
                             </div>    
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                             <div class="slider_content content_two">
                                 <img src="assets/img/slider/content4.png" alt="">
                                 <p>the wooboom clothing summer collection is back at half price</p>
-                                <a href="shop.html">Discover Now</a>
+                                <a href="product">Discover Now</a>
                             </div>    
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                             <div class="slider_content content_three">
                                 <img src="assets/img/slider/content5.png" alt="">
                                 <p>the wooboom clothing summer collection is back at half price</p>
-                                <a href="shop.html">Discover Now</a>
+                                <a href="product">Discover Now</a>
                             </div>    
                         </div>
                     </div>
@@ -82,21 +82,21 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="banner_area">
                             <div class="banner_thumb">
-                                <a href="shop.html"><img src="assets/img/bg/banner8.jpg" alt="#"></a>
+                                <a href="product"><img src="assets/img/bg/banner8.jpg" alt="#"></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="banner_area">
                             <div class="banner_thumb">
-                                <a href="shop.html"><img src="assets/img/bg/banner9.jpg" alt="#"></a>
+                                <a href="product"><img src="assets/img/bg/banner9.jpg" alt="#"></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="banner_area bottom">
                             <div class="banner_thumb">
-                                <a href="shop.html"><img src="assets/img/bg/banner10.jpg" alt="#"></a>
+                                <a href="product"><img src="assets/img/bg/banner10.jpg" alt="#"></a>
                             </div>
                         </div>
                     </div>
@@ -147,10 +147,10 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="banner_area">
                             <div class="banner_thumb">
-                                <a href="shop.html"><img src="assets/img/bg/banner11.jpg" alt="#"></a>
+                                <a href="product"><img src="assets/img/bg/banner11.jpg" alt="#"></a>
                                 <div class="banner_content">
                                     <h1>Handbag <br> Men’s Collection</h1>
-                                    <a href="shop.html">Discover Now</a>
+                                    <a href="product">Discover Now</a>
                                 </div>
                             </div>
                         </div>
@@ -158,10 +158,10 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="banner_area">
                             <div class="banner_thumb">
-                                <a href="shop.html"><img src="assets/img/bg/banner12.jpg" alt="#"></a>
+                                <a href="product"><img src="assets/img/bg/banner12.jpg" alt="#"></a>
                                 <div class="banner_content">
                                     <h1>Sneaker <br> Men’s Collection</h1>
-                                    <a href="shop.html">Discover Now</a>
+                                    <a href="product">Discover Now</a>
                                 </div>
                             </div>
                         </div>
@@ -185,27 +185,22 @@
                 <div class="product_area"> 
                     <div class="row">
                         <div class="product_carousel product_three_column4 owl-carousel">
+                            <c:forEach items="${topTrend}" var="td">
                             <div class="col-lg-3">
-                                <div class="single_product">
-                                    <div class="product_thumb">
-                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product21.jpg" alt=""></a>
-                                        <a class="secondary_img" href="product-details.html"><img src="assets/img/product/product22.jpg" alt=""></a>
-
-                                        <div class="quick_button">
-                                            <a href="#" title="quick_view">Xem sản phẩm</a>
+                                    <div class="single_product">
+                                        <div class="product_thumb">
+                                            <a class="primary_img" href="product?action=productdetail&product_id=${td.product_id}"><img src="${td.img}" width="10px;" alt=""></a>
+                                            <div class="quick_button">
+                                                <a href="product?action=productdetail&product_id=${td.product_id}" title="quick_view">Xem sản phẩm</a>
+                                            </div>
                                         </div>
-
-                                        <div class="product_sale">
-                                            <span>-20%</span>
+                                        <div class="product_content">
+                                            <h3><a href="product?action=productdetail&product_id=${td.product_id}">${td.product_name}</a></h3>
+                                            <span class="current_price">${td.product_price}đ</span>
                                         </div>
-                                    </div>
-                                    <div class="product_content">
-                                        <h3><a href="product-details.html">Giày thể thao</a></h3>
-                                        <span class="current_price">300.000</span>
-                                        <span class="old_price">420.000</span>
                                     </div>
                                 </div>
-                            </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>

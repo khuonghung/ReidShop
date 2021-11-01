@@ -41,7 +41,9 @@ public class Home extends HttpServlet {
 //        String action = request.getParameter("action");
         productDAO c = new productDAO();
         List<Entity.Product> product = c.getTop10Product();
+        List<Entity.Product> product1 = c.getTrendProduct();
         request.setAttribute("top10", product);
+        request.setAttribute("topTrend", product1);
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
