@@ -60,7 +60,7 @@ public class Checkout extends HttpServlet {
                 
             }
             if(payment_method.equals("cod")){
-                payment = "Chưa thanh toán";
+                payment = "COD";
             }
             int phonenumber = Integer.parseInt(phone);
             acc = (User) u;
