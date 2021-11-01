@@ -39,7 +39,7 @@
 
 
                 <!-- User Menu-->
-                <li><a class="app-nav__item" href="/index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+                <li><a class="app-nav__item" href="dashboard"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
                 </li>
             </ul>
@@ -53,18 +53,19 @@
                     <p class="app-sidebar__user-name"><b>${sessionScope.user.user_name}</b></p>
                     <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
                 </div>
-                <hr>
-                <ul class="app-menu">
-                    <li><a class="app-menu__item" href="dashboard"><i class='app-menu__icon bx bx-tachometer'></i><span
-                                class="app-menu__label">Bảng điều khiển</span></a></li>
-                    <li><a class="app-menu__item" href="customermanager"><i class='app-menu__icon bx bx-user-voice'></i><span
-                                class="app-menu__label">Quản lý khách hàng</span></a></li>
-                    <li><a class="app-menu__item" href="productmanager"><i
-                                class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a>
-                    </li>
-                    <li><a class="app-menu__item" href="ordermanager"><i class='app-menu__icon bx bx-task'></i><span
-                                class="app-menu__label">Quản lý đơn hàng</span></a></li>
-                </ul>
+            </div>
+            <hr>
+            <ul class="app-menu">
+                <li><a class="app-menu__item" href="dashboard"><i class='app-menu__icon bx bx-tachometer'></i><span
+                            class="app-menu__label">Bảng điều khiển</span></a></li>
+                <li><a class="app-menu__item" href="customermanager"><i class='app-menu__icon bx bx-user-voice'></i><span
+                            class="app-menu__label">Quản lý khách hàng</span></a></li>
+                <li><a class="app-menu__item" href="productmanager"><i
+                            class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a>
+                </li>
+                <li><a class="app-menu__item" href="ordermanager"><i class='app-menu__icon bx bx-task'></i><span
+                            class="app-menu__label">Quản lý đơn hàng</span></a></li>
+            </ul>
         </aside>
         <main class="app-content">
             <div class="app-title">
