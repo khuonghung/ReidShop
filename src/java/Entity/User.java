@@ -27,6 +27,10 @@ public class User {
         this.isAdmin = isAdmin;
     }
     
+    public User(String user_name) {
+        this.user_name = user_name;
+
+    }
 
     public int getUser_id() {
         return user_id;
