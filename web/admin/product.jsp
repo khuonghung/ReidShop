@@ -137,7 +137,7 @@
                                                             class="fas fa-trash-alt"></i>
                                                     </button>
                                                     <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                                                            data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i>
+                                                            data-toggle="modal" data-target="#ModalUP${p.product_id}"><i class="fas fa-edit"></i>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -146,7 +146,7 @@
                                             MODAL
                                             -->
 
-                                        <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+                                        <div class="modal fade" id="ModalUP${p.product_id}" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
                                              data-keyboard="false">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
