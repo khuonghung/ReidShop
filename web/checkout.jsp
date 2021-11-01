@@ -74,11 +74,11 @@
                                     </div>
                                     <div class="col-lg-12 mb-20">
                                         <label>Địa chỉ<span>*</span></label>
-                                        <input name="address" type="text">
+                                        <input required name="address" type="text">
                                     </div>
                                     <div class="col-lg-12 mb-20">
                                         <label>Số điện thoại<span>*</span></label>
-                                        <input name="phone" type="number">
+                                        <input required name="phone" type="number">
                                     </div>
                                 </div>
                             </div>
