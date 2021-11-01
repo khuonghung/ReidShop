@@ -90,7 +90,7 @@ public class Checkout extends HttpServlet {
         HttpSession session = request.getSession(true);
         Object u = session.getAttribute("user");
         if (u != null) {
-            response.sendRedirect("checkout.jsp");
+            request.getRequestDispatcher("checkout.jsp").forward(request, response);
         } else {
             response.sendRedirect("user?action=login");
         }
