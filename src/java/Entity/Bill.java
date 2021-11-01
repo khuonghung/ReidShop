@@ -13,22 +13,24 @@ import java.sql.Date;
  */
 public class Bill {
     int bill_id;
-    int user_id;
+    User user;
     Float total;
     String payment;
     String address;
     Date date;
+    int phone;
 
     public Bill() {
     }
 
-    public Bill(int bill_id, int user_id, Float total, String payment, String address, Date date) {
+    public Bill(int bill_id, User user, Float total, String payment, String address, Date date, int phone) {
         this.bill_id = bill_id;
-        this.user_id = user_id;
+        this.user = user;
         this.total = total;
         this.payment = payment;
         this.address = address;
         this.date = date;
+        this.phone = phone;
     }
 
     public int getBill_id() {
@@ -39,12 +41,12 @@ public class Bill {
         this.bill_id = bill_id;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Float getTotal() {
@@ -78,6 +80,20 @@ public class Bill {
     public void setDate(Date date) {
         this.date = date;
     }
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
+    
+
+    
+
+    
     
     
     
