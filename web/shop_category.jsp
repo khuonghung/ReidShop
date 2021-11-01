@@ -81,28 +81,18 @@
                             <div class="shop_title">
                                 <h2>Sản phẩm</h2>
                             </div>
-<!--                            <div class="shop_toolbar_wrapper">
-                                <div class=" niceselect_option">
-
-                                    <form class="select_option" action="#">
-                                        <select name="orderby" id="short">
-                                            <option selected value="1">Sort by average rating</option>
-                                            <option  value="2">Sort by popularity</option>
-                                            <option value="3">Sort by newness</option>
-                                            <option value="4">Sort by price: low to high</option>
-                                            <option value="5">Sort by price: high to low</option>
-                                            <option value="6">Product Name: Z</option>
-                                        </select>
-                                    </form>
-
-
+                            <div class="shop_toolbar_wrapper" style="border:none">
+                                <div class="dropdown ">
+                                    <button style="color: #000; background-color: #ffffff;border:none; font-family: sans-serif;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Bộ lọc
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="product?action=sort&type=low">Giá từ thấp đến cao</a>
+                                        <a class="dropdown-item" href="product?action=sort&type=high">Giá từ cao xuống thấp</a>
+                                        <a class="dropdown-item" href="product?action=sort&type=a-z">A-Z</a>
+                                    </div>
                                 </div>
-                                <div class="page_amount">
-                                    <p>Showing 1–9 of 21 results</p>
-                                </div>
-                            </div>-->
-                            <!--shop toolbar end-->
-
+                            </div>
                             <div class="row shop_wrapper">
                                 <c:forEach items="${ProductData}" var="p">
                                     <div class="col-lg-4 col-md-4 col-12 ">
@@ -129,8 +119,8 @@
                                     <ul>
                                         <c:forEach begin="${1}" end="${num}" var="i">
                                             <li class="${i==page?"current":""}"><a href="product?page=${i}">${i}</a></li>
-                                        </c:forEach>
-                                            
+                                            </c:forEach>
+
                                     </ul>
                                 </div>
                             </div>
