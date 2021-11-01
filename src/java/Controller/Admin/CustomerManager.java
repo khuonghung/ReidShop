@@ -5,12 +5,16 @@
  */
 package Controller.Admin;
 
+import DAO.userDAO;
+import Entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -29,19 +33,35 @@ public class CustomerManager extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CustomerManager</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet CustomerManager at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
+        try {
+            HttpSession session = request.getSession();
+            User user = (User) session.getAttribute("user");
+            String action = request.getParameter("action");
+            if (user.getIsAdmin().equalsIgnoreCase("true")) {
+                if (action == null) {
+                    userDAO dao = new userDAO();
+                    List<User> user1 = dao.getUser();
+                    request.setAttribute("user", user1);
+                    request.getRequestDispatcher("admin/customer.jsp").forward(request, response);
+                }
+                if (action.equals("update")) {
+                    String user_id = request.getParameter("user_id");
+                    String isAdmin = request.getParameter("permission");
+                    int id = Integer.parseInt(user_id);
+                    userDAO dao = new userDAO();
+                    dao.setAdmin(id, isAdmin);
+                    response.sendRedirect("customermanager");
+                }
+            }else {
+                response.sendRedirect("user?action=login");
+            }
+        } catch (Exception e) {
+            response.sendRedirect("404.jsp");
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
