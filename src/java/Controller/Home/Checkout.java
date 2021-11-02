@@ -45,33 +45,53 @@ public class Checkout extends HttpServlet {
             cart = new Cart();
         }
 
+        String payment_method = request.getParameter("payment_method");
+        billDAO dao = new billDAO();
         User acc = null;
         Object u = session.getAttribute("user");
+        if (o != null) {
+            if (u != null) {
+                String payment = null;
+                String address = request.getParameter("address");
+                String phone = request.getParameter("phone");
+                if (payment_method.equals("momo")) {
+                    payment = "MOMO";
+                }
+                if (payment_method.equals("vnpay")) {
+                }
+                if (payment_method.equals("cod")) {
+                    payment = "COD";
+                }
+                int phonenumber = Integer.parseInt(phone);
+                acc = (User) u;
 
-        if (u != null) {
-            String payment = null;
-            String address = request.getParameter("address");
-            String phone = request.getParameter("phone");
-            String payment_method = request.getParameter("payment_method");
-            if(payment_method.equals("momo")){
-                
+                dao.addOrder(acc, cart, payment, address, phonenumber);
+                session.removeAttribute("cart");
+                session.setAttribute("size", 0);
+                if (payment_method.equals("cod")) {
+                    response.sendRedirect("home");
+                }
+                if (payment_method.equals("momo")) {
+                    Entity.Bill bill = dao.getBill();
+                    int total = Math.round(bill.getTotal());
+                    request.setAttribute("total", total);
+                    request.setAttribute("bill", bill);
+                    request.getRequestDispatcher("qrcode.jsp").forward(request, response);
+                }
+            } else {
+                response.sendRedirect("user?action=login");
             }
-            if(payment_method.equals("vnpay")){
-                
-            }
-            if(payment_method.equals("cod")){
-                payment = "COD";
-            }
-            int phonenumber = Integer.parseInt(phone);
-            acc = (User) u;
-            billDAO dao = new billDAO();
-            dao.addOrder(acc, cart, payment, address, phonenumber);
-            session.removeAttribute("cart");
-            session.setAttribute("size", 0);
-            response.sendRedirect("home");
-
         } else {
-            response.sendRedirect("user?action=login");
+            if (payment_method.equals("momo")) {
+                Entity.Bill bill = dao.getBill();
+                int total = Math.round(bill.getTotal());
+                request.setAttribute("total", total);
+                request.setAttribute("bill", bill);
+                request.getRequestDispatcher("qrcode.jsp").forward(request, response);
+            }
+            if (payment_method.equals("cod")) {
+                response.sendRedirect("home");
+            }
         }
     }
 

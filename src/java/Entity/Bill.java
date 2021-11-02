@@ -32,6 +32,12 @@ public class Bill {
         this.date = date;
         this.phone = phone;
     }
+    
+    public Bill(int bill_id,Float total,Date date) {
+        this.bill_id = bill_id;
+        this.total = total;
+        this.date = date;
+    }
 
     public int getBill_id() {
         return bill_id;

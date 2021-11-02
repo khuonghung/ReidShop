@@ -6,6 +6,7 @@
 package DAO;
 
 import Context.DBContext;
+import Entity.Bill;
 import Entity.Cart;
 import Entity.Item;
 import Entity.User;
@@ -13,6 +14,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -70,8 +73,37 @@ public class  billDAO {
 
         } catch (Exception e) {
         }
-        
-        
-        
+    }
+    
+    public List<Bill> getBillInfo(){
+        List<Bill> list = new ArrayList<>();
+        String sql = "select b.bill_id, u.user_name,b.phone,b.address,b.date,b.total,b.payment from bill b inner join users u on b.user_id = u.user_id";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                User u = new User(rs.getString(2));
+                list.add(new Bill(rs.getInt(1),u , rs.getFloat(6), rs.getString(7), rs.getString(4), rs.getDate(5), rs.getInt(3)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    
+    public Bill getBill() {
+        List<Bill> list = new ArrayList<>();
+        String sql = "select top 1 bill_id, total, date from [bill] order by bill_id desc";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return(new Bill(rs.getInt(1),rs.getFloat(2), rs.getDate(3)));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
     }
 }
