@@ -31,17 +31,18 @@
         <jsp:include page="layout/menu.jsp"/>
 
         <!--error section area start-->
-        <div class="momo_section">
+        <div class="error_section">
             <div class="container">   
                 <div class="row">
                     <div class="col-12">
-                        <div class="momo_form">
+                        <div class="error_form">
                             <h2 class="text-center text-dark">Thanh toán hoá đơn: #${bill.bill_id}!</h2>
                             <h4 class="text-center">Số tiền thanh toán: <fmt:formatNumber value="${bill.total}" type="currency" currencySymbol=""/></h4>
-                            <h4 class="text-center">Vui lòng viết ghi chú: Mã đơn hàng #${bill.bill_id}</h4>
-                            <h7 class="text-center">Chúng tôi sẽ kiểm tra và thông báo đến bạn khi thanh toán hoàn tất !</h7>
+                            <h4 class="text-center">Vui lòng viết ghi chú: </h4>
+                            <h5 class="text-center" style="color: red">Mã đơn hàng #${bill.bill_id}</h5>
+                            <h6 class="text-center">Chúng tôi sẽ kiểm tra và thông báo đến bạn khi thanh toán hoàn tất !</h6>
                             <div class="text-center">
-                                <iframe style="align-content: center;"height="650px" width="500px" src="https://nhantien.momo.vn/0383298183/${total}"></iframe>
+                                <iframe style="align-content: center;"height="650px" width="450px" src="https://nhantien.momo.vn/0383298183/${total}"></iframe>
                             </div>
                             <a href="home">Tiếp tục mua hàng</a>
                         </div>
