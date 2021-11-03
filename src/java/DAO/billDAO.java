@@ -139,4 +139,20 @@ public class  billDAO {
         }
     }
     
+    public List<Bill> getBillByID(int user_id){
+        List<Bill> list = new ArrayList<>();
+        String sql = "select b.bill_id, b.date,b.total,b.payment, b.address, b.phone from bill b where user_id = ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, user_id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Bill(rs.getInt(1), rs.getFloat(3), rs.getString(4), rs.getString(5), rs.getDate(2), rs.getInt(6)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    
 }

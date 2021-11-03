@@ -38,6 +38,15 @@ public class Bill {
         this.total = total;
         this.date = date;
     }
+    
+    public Bill(int bill_id, Float total, String payment, String address, Date date, int phone) {
+        this.bill_id = bill_id;
+        this.total = total;
+        this.payment = payment;
+        this.address = address;
+        this.date = date;
+        this.phone = phone;
+    }
 
     public int getBill_id() {
         return bill_id;

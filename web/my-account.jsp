@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!doctype html>
 <html class="no-js" lang="en">
@@ -45,7 +46,7 @@
                     <div class="col-12">
                         <div class="breadcrumb_content">
                             <ul>
-                                <li><a href="index.html">home</a></li>
+                                <li><a href="home">home</a></li>
                                 <li>/</li>
                                 <li>my account</li>
                             </ul>
@@ -65,10 +66,9 @@
                             <!-- Nav tabs -->
                             <div class="dashboard_tab_button">
                                 <ul role="tablist" class="nav flex-column dashboard-list">
-                                    <li><a href="#account-details" data-toggle="tab" class="nav-link">Account details</a></li>
-                                    <li> <a href="#orders" data-toggle="tab" class="nav-link">Orders</a></li>
-                                    <li><a href="#address" data-toggle="tab" class="nav-link">Addresses</a></li>
-                                    <li><a href="user?action=logout" class="nav-link">logout</a></li>
+                                    <li><a href="#account-details" data-toggle="tab" class="nav-link">Tài khoản của tôi</a></li>
+                                    <li> <a href="#orders" data-toggle="tab" class="nav-link">Đơn hàng</a></li>
+                                    <li><a href="user?action=logout" class="nav-link">Đăng xuất</a></li>
                                 </ul>
                             </div>    
                         </div>
@@ -76,53 +76,36 @@
                             <!-- Tab panes -->
                             <div class="tab-content dashboard_content">
                                 <div class="tab-pane fade" id="orders">
-                                    <h3>Orders</h3>
+                                    <h3>Đơn hàng</h3>
                                     <div class="table-responsive">
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th>Order</th>
-                                                    <th>Date</th>
-                                                    <th>Status</th>
-                                                    <th>Total</th>
+                                                    <th>Mã đơn hàng</th>
+                                                    <th>Ngày khởi tạo</th>
+                                                    <th>Hình thức GD</th>
+                                                    <th>Địa chỉ</th>
+                                                    <th>Tổng đơn</th>
                                                     <th>Actions</th>	 	 	 	
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <c:forEach items="${bill}" var="b">
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>May 10, 2018</td>
-                                                    <td><span class="success">Completed</span></td>
-                                                    <td>$25.00 for 1 item </td>
-                                                    <td><a href="cart.html" class="view">view</a></td>
+                                                    <td>${b.bill_id}</td>
+                                                    <td>${b.date}</td>
+                                                    <td><span class="success">${b.payment}</span></td>
+                                                    <td>${b.address}</td>
+                                                    <td>${b.total}</td>
+                                                    <td><a href="user?action=showdetail&bill_id=${b.bill_id}" class="view">view</a></td>
                                                 </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>May 10, 2018</td>
-                                                    <td>Processing</td>
-                                                    <td>$17.00 for 1 item </td>
-                                                    <td><a href="cart.html" class="view">view</a></td>
-                                                </tr>
+                                                </c:forEach>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
-                                <div class="tab-pane" id="address">
-                                    <p>The following addresses will be used on the checkout page by default.</p>
-                                    <h4 class="billing-address">Billing address</h4>
-                                    <a href="#" class="view">Edit</a>
-                                    <p><strong>Bobby Jackson</strong></p>
-                                    <address>
-                                        House #15<br>
-                                        Road #8<br>
-                                        Your address  <br>
-                                        goes here <br>
-                                        1212
-                                    </address>
-                                    <p> New York</p>   
-                                </div>
                                 <div class="tab-pane fade show active" id="account-details">
-                                    <h3>Account details </h3>
+                                    <h3>Tài khoản của tôi </h3>
                                     <div class="login">
                                         <div class="login_form_container">
                                             <div class="account_login_form">

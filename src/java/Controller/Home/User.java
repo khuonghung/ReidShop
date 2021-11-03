@@ -5,9 +5,12 @@
  */
 package Controller.Home;
 
+import DAO.billDAO;
 import DAO.userDAO;
+import Entity.BillDetail;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -81,6 +84,10 @@ public class User extends HttpServlet {
                 HttpSession session = request.getSession();
                 Entity.User user = (Entity.User) session.getAttribute("user");
                 if (user != null) {
+                    int user_id = user.getUser_id();
+                    billDAO dao = new billDAO();
+                    List<Entity.Bill> bill = dao.getBillByID(user_id);
+                    request.setAttribute("bill", bill);
                     request.getRequestDispatcher("my-account.jsp").forward(request, response);
                 } else {
                     response.sendRedirect("user?action=login");
@@ -88,6 +95,14 @@ public class User extends HttpServlet {
             } catch (Exception e) {
                 response.sendRedirect("user?action=login");
             }
+        }
+        if (action.equals("showdetail")) {
+            String bill_id = request.getParameter("bill_id");
+            int id = Integer.parseInt(bill_id);
+            billDAO dao = new billDAO();
+            List<BillDetail> detail = dao.getDetail(id);
+            request.setAttribute("detail", detail);
+            request.getRequestDispatcher("billdetail.jsp").forward(request, response);
         }
 
         if (action.equals("updateinfo")) {
