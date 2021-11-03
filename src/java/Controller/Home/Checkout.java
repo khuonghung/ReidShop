@@ -94,7 +94,7 @@ public class Checkout extends HttpServlet {
                         Entity.Bill bill = dao.getBill();
                         String vnp_Version = "2.0.0";
                         String vnp_Command = "pay";
-                        String vnp_OrderInfo = "Thanh toan don hang";
+                        String vnp_OrderInfo = "Thanh toan don hang" + bill.getBill_id();
                         String orderType = "billpayment";
                         String vnp_TxnRef = bill.getBill_id() + "";
                         String vnp_IpAddr = Config.getIpAddress(request);
