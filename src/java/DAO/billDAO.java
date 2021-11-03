@@ -127,4 +127,16 @@ public class  billDAO {
         return list;
     }
     
+    public void updatePayment(String payment, int bill_id){
+        String sql = "update bill set payment= ? where bill_id = ?";
+        try {
+        conn = new DBContext().getConnection();
+        ps = conn.prepareStatement(sql);
+        ps.setInt(2, bill_id);
+        ps.setString(1, payment);
+        ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+    
 }
