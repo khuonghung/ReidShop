@@ -45,6 +45,12 @@ public class Product {
         this.quantity = quantity;
         this.img = img;
     }
+    
+    public Product(String product_id, String product_name, String img) {
+        this.product_id = product_id;
+        this.product_name = product_name;
+        this.img = img;
+    }
 
     public Category getCate() {
         return cate;
