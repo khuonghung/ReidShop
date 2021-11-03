@@ -16,6 +16,7 @@ public class BillDetail {
     int quantity;
     String size;
     String color;
+    Float price;
 
     public BillDetail() {
     }
@@ -27,6 +28,15 @@ public class BillDetail {
         this.quantity = quantity;
         this.size = size;
         this.color = color;
+    }
+    
+    public BillDetail(int detail_id, Product product, int quantity, String size, String color, Float price) {
+        this.detail_id = detail_id;
+        this.product = product;
+        this.quantity = quantity;
+        this.size = size;
+        this.color = color;
+        this.price = price;
     }
 
     public int getDetail_id() {
@@ -76,7 +86,14 @@ public class BillDetail {
     public void setColor(String color) {
         this.color = color;
     }
-    
-    
+
+    public Float getPrice() {
+        return price;
+    }
+
+    public void setPrice(Float price) {
+        this.price = price;
+    }
+
     
 }
