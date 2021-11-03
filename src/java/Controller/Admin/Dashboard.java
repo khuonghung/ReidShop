@@ -5,9 +5,13 @@
  */
 package Controller.Admin;
 
+import DAO.billDAO;
+import DAO.productDAO;
+import Entity.Bill;
 import Entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,6 +41,18 @@ public class Dashboard extends HttpServlet {
             HttpSession session = request.getSession();
             Entity.User user = (User) session.getAttribute("user");
             if (user.getIsAdmin().equalsIgnoreCase("true")) {
+                productDAO dao = new productDAO();
+                billDAO bdao = new billDAO();
+                int count = dao.CountProduct();
+                int countuser = dao.CountUser();
+                int countbill = dao.CountBill();
+                int countproductlow = dao.CountProductLow();
+                List<Bill> billbyday = bdao.getBillByDay();
+                request.setAttribute("product", count);
+                request.setAttribute("user", countuser);
+                request.setAttribute("bill", countbill);
+                request.setAttribute("low", countproductlow);
+                request.setAttribute("billbyday", billbyday);
                 request.getRequestDispatcher("/admin/index.jsp").forward(request, response);
             } else {
                 response.sendRedirect("login");
