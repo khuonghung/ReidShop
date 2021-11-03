@@ -77,7 +77,7 @@
                                                     <td class="product_name"><a href="product?action=productdetail&product_id=${i.product.product_id}">${d.product.product_name}</a></td>
                                                     <td class="product-price">${d.size}</td>
                                                     <td class="product-price">${d.color}</td>
-                                                    <td class="product_quantity"><input name="quantity" min="1" max="100" value="${d.quantity}" type="number"></td>
+                                                    <td class="product_quantity">${d.quantity}</td>
                                                     <td class="product_total"> <fmt:formatNumber pattern="##########" value="${d.price}"/></td>
                                                 </tr>
                                             </c:forEach>
