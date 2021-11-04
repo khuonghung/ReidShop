@@ -71,28 +71,27 @@
                     <div class="col-lg-6 col-md-12">
                         <div class="contact_message form">
                             <h3>Gửi thông tin phản hồi</h3>   
-                            <form id="contact-form" method="POST"  action="php/contact.php">
+                            <form id="contact-form" method="GET" action="https://script.google.com/macros/s/AKfycby2HoMCJyTeclcs-4VlInS-NG_hs161qiMTiuzUOpNZp_YRsmk/exec">
                                 <p>       
                                     <label>  Địa chỉ email</label>
-                                    <input name="email" placeholder="Email *" type="email">
+                                    <input name="Email" pattern="[^ @]*@[^ @]*" placeholder="Email *" required="" value="" type="email">
                                 </p>
                                 <p>          
                                     <label>  Tiêu đề</label>
-                                    <input name="subject" placeholder="Subject *" type="text">
+                                    <input name="Subject" placeholder="Subject *" required="" value="" type="text">
                                 </p>    
                                 <div class="contact_textarea">
                                     <label>  Thông tin</label>
-                                    <textarea placeholder="Message *" name="message"  class="form-control2" ></textarea>     
-                                </div>   
-                                <button type="submit"> Send</button>  
-                                <p class="form-messege"></p>
+                                    <input placeholder="Message *" name="Message" required="" value="" class="form-control2" >    
+                                </div>
+                                <br>
+                                <button type="submit"> Send</button>
                             </form> 
                         </div> 
                     </div>
                 </div>
             </div>    
         </div>
-
         <!--contact area end-->
 
         <!--contact map start-->
@@ -119,9 +118,6 @@
 
         <!-- Main JS -->
         <script src="assets/js/main.js"></script>
-
-
-
     </body>
 
 </html>
