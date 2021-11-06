@@ -44,14 +44,14 @@
 
                         <c:if test="${fn: toUpperCase(sessionScope.user.isAdmin) == 'TRUE'}">
                             <li><a href="dashboard">Quản lý</a></li>
-                        </c:if>
+                            </c:if>
                     </ul>
                 </li> 
             </ul>
         </div> 
         <div class="search_bar">
-            <form action="#">
-                <input placeholder="Tìm kiếm..." type="text">
+            <form action="product?action=search" method="POST">
+                <input name="text" placeholder="Tìm kiếm..." type="text">
                 <button type="submit"><i class="ion-ios-search-strong"></i></button>
             </form>
         </div>
@@ -149,8 +149,8 @@
                 <div class="row align-items-center">
                     <div class="col-lg-4">
                         <div class="search_bar">
-                            <form action="#">                          
-                                <input placeholder="Tìm kiếm..." type="text">
+                            <form action="product?action=search" method="POST">
+                                <input name="text" placeholder="Tìm kiếm..." type="text">
                                 <button type="submit"><i class="ion-ios-search-strong"></i></button>
                             </form>
                         </div>

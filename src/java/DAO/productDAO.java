@@ -430,13 +430,14 @@ public class productDAO {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
-            while(rs.next())
-            count = rs.getInt(1);
+            while (rs.next()) {
+                count = rs.getInt(1);
+            }
         } catch (Exception e) {
         }
         return count;
     }
-    
+
     public int CountUser() {
         int count = 0;
         String sql = "SELECT COUNT(*) as 'count'\n"
@@ -445,13 +446,14 @@ public class productDAO {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
-            while(rs.next())
-            count = rs.getInt(1);
+            while (rs.next()) {
+                count = rs.getInt(1);
+            }
         } catch (Exception e) {
         }
         return count;
     }
-    
+
     public int CountBill() {
         int count = 0;
         String sql = "SELECT COUNT(*) as 'count'\n"
@@ -460,13 +462,14 @@ public class productDAO {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
-            while(rs.next())
-            count = rs.getInt(1);
+            while (rs.next()) {
+                count = rs.getInt(1);
+            }
         } catch (Exception e) {
         }
         return count;
     }
-    
+
     public int CountProductLow() {
         int count = 0;
         String sql = "SELECT COUNT(*) as 'count'\n"
@@ -475,11 +478,35 @@ public class productDAO {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
-            while(rs.next())
-            count = rs.getInt(1);
+            while (rs.next()) {
+                count = rs.getInt(1);
+            }
         } catch (Exception e) {
         }
         return count;
+    }
+
+    public List<Product> SearchAll(String text) {
+        List<Product> list = new ArrayList<>();
+        String sql = "SELECT DISTINCT c.category_name , p.product_id , p.product_name, p.product_price, p.product_describe, p.quantity,p.img \n"
+                + "FROM product p inner join category c on c.category_id = p.category_id inner join product_color ps on p.product_id = ps.product_id\n"
+                + "WHERE product_name LIKE ? OR  product_price LIKE ? OR ps.color LIKE ? OR c.category_name LIKE ?";
+        
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, "%" + text + "%");
+            ps.setString(2, "%" +text + "%");
+            ps.setString(3, text);
+            ps.setString(4, "_%" + text + "%_");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Category c = new Category(rs.getString(1));
+                list.add(new Product(c, rs.getString(2), rs.getString(3), rs.getFloat(4), rs.getString(5), rs.getInt(6), rs.getString(7)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
     }
 
 }
