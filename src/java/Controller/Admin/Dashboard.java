@@ -58,7 +58,7 @@ public class Dashboard extends HttpServlet {
                 response.sendRedirect("login");
             }
         } catch (Exception e) {
-            response.sendRedirect("user?action=login");
+            response.sendRedirect("404.jsp");
         }
 
     }

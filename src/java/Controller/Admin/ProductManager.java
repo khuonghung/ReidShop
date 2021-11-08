@@ -12,11 +12,10 @@ import Entity.Product;
 import Entity.Size;
 import Entity.User;
 import java.io.IOException;
-import java.io.PrintWriter;
-import static java.lang.System.out;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -102,7 +101,6 @@ public class ProductManager extends HttpServlet {
                     String[] color_rw = product_color.split("\\s*,\\s*");
                     int[] size = new int[size_rw.length];
                     int[] color = new int[color_rw.length];
-                    //size
                     List<Size> list = new ArrayList<>();
                     try {
                         for (int i = 0; i < size.length; i++) {
@@ -198,7 +196,7 @@ public class ProductManager extends HttpServlet {
             }
 
         } catch (Exception e) {
-            response.sendRedirect("user?action=login");
+            response.sendRedirect("404.jsp");
         }
 
     }
