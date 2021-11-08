@@ -47,10 +47,10 @@
         <!-- Sidebar menu-->
         <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
         <aside class="app-sidebar">
-            <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="admin/images/avate.png" width="50px"
+            <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="admin/images/user.png" width="50px"
                                                 alt="User Image">
                 <div>
-                    <p class="app-sidebar__user-name"><b>Khương Hùng</b></p>
+                    <p class="app-sidebar__user-name"><b>${sessionScope.user.user_name}</b></p>
                     <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
                 </div>
             </div>
@@ -106,8 +106,6 @@
                                     </thead>
                                     <tbody>
                                         <c:forEach items="${ProductData}" var="p">
-
-
                                             <tr>
                                                 <td>${p.product_id}</td>
                                                 <td>${p.cate.category_name}</td>
@@ -183,16 +181,16 @@
                                                             <div class="form-group col-md-6">
                                                                 <label class="control-label">Màu</label>
                                                                 <input class="form-control" name="product_color" type="text" value="<c:forEach items="${ColorData}" var="c"><c:if test="${p.product_id==c.product_id}">${c.color},</c:if></c:forEach>">
-                                                            </div>
+                                                                    </div>
 
-                                                            <div class="form-group col-md-6">
-                                                                 <label class="control-label">Size</label>
-                                                                <input class="form-control" name="product_size" type="text" value="<c:forEach items="${SizeData}" var="s"><c:if test="${p.product_id==s.product_id}">${s.size},</c:if></c:forEach>">
-                                                            </div>
+                                                                    <div class="form-group col-md-6">
+                                                                        <label class="control-label">Size</label>
+                                                                        <input class="form-control" name="product_size" type="text" value="<c:forEach items="${SizeData}" var="s"><c:if test="${p.product_id==s.product_id}">${s.size},</c:if></c:forEach>">
+                                                                    </div>
 
-                                                            <div class="form-group col-md-6">
-                                                                <label class="control-label">Thông tin</label>
-                                                                <input class="form-control" type="text" name="product_describe" value="${p.product_describe}">
+                                                                    <div class="form-group col-md-6">
+                                                                        <label class="control-label">Thông tin</label>
+                                                                        <input class="form-control" type="text" name="product_describe" value="${p.product_describe}">
                                                             </div>
 
                                                             <div class="form-group col-md-6">
@@ -312,6 +310,17 @@
                             });
                 });
             }));
+        </script>
+        <script>
+            var myApp = new function () {
+                this.printTable = function () {
+                    var tab = document.getElementById('sampleTable');
+                    var win = window.open('', '', 'height=700,width=700');
+                    win.document.write(tab.outerHTML);
+                    win.document.close();
+                    win.print();
+                }
+            }
         </script>
     </body>
 

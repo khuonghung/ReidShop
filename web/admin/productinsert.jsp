@@ -155,10 +155,10 @@
         <!-- Sidebar menu-->
         <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
         <aside class="app-sidebar">
-            <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="admin/images/avate.png" width="50px"
+            <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="admin/images/user.png" width="50px"
                                                 alt="User Image">
                 <div>
-                    <p class="app-sidebar__user-name"><b>Khương Hùng</b></p>
+                    <p class="app-sidebar__user-name"><b>${sessionScope.user.user_name}</b></p>
                     <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
                 </div>
             </div>
@@ -194,7 +194,7 @@
                                 </div>
                             </div>
 
-                            <form class="row" action="productmanager?action=insertproduct" method="POST">
+                            <form class="row" action="productmanager?action=insertproduct" method="POST" enctype="multipart/form-data">
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Mã sản phẩm </label>
                                     <input class="form-control" name="product_id" type="text" placeholder="">
@@ -245,7 +245,6 @@
                                 <div class="form-group col-md-12">
                                     <label class="control-label">Mô tả sản phẩm</label>
                                     <textarea class="form-control" name="describe" id="describe"></textarea>
-<!--                                    <script>CKEDITOR.replace('describe');</script>-->
                                 </div>
                                 <button class="btn btn-save" type="submit">Lưu lại</button>
                                 &nbsp;
@@ -322,12 +321,6 @@
                                                 reader.readAsDataURL(file);
                                             }
                                         });
-                                        function moveFile() {
-                                            var object = new ActiveXObject("Scripting.FileSystemObject");
-                                            var file = object.GetFile("C:\\wamp\\www\\phptest.php");
-                                            file.Move("C:\\wamp\\");
-                                            document.write("File is moved successfully");
-                                        }
 
 
         </script>
