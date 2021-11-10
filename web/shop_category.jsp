@@ -114,7 +114,7 @@
                                 </c:forEach>
                             </div>
                             <c:set var="page" value="${page}"/>
-                            <div class="shop_toolbar t_bottom">
+                            <div class="shop_toolbar t_bottom" style="border: none;">
                                 <div class="pagination">
                                     <ul>
                                         <c:forEach begin="${1}" end="${num}" var="i">
