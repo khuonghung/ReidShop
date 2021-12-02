@@ -130,7 +130,7 @@ public class ProductManager extends HttpServlet {
                     product.setSize(list);
                     product.setColor(list2);
                     dao.insertProduct(product);
-                    request.getRequestDispatcher("productmanager?action=insert").forward(request, response);
+                    response.sendRedirect("productmanager?action=insert");
                 }
 
                 if (action.equalsIgnoreCase("deleteproduct")) {
